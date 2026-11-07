@@ -273,13 +273,7 @@ When a user selects a book:
           Display Covers and Authors
 ```
 
-## API Integration
 
-This project does **not** require an external API or API key.
-
-Book cover images are displayed using the image URLs already available in the `books.csv` dataset. These URLs are retained in `books.pkl` and used directly by the Streamlit application.
-
-An internet connection may be required to load externally hosted book cover images.
 
 ## Installation and Setup
 
