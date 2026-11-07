@@ -2,9 +2,13 @@
 
 Book AI is a **collaborative filtering-based book recommendation system** developed using Python, Machine Learning, Pandas, NumPy, Scikit-learn, and Streamlit.
 
-The project analyses user-book rating interactions to identify books that are similar based on users' reading and rating patterns. It uses a user-item rating matrix and Cosine Similarity to recommend books.
+The project analyses user-book rating interactions to identify books with similar rating patterns. It uses a user-item rating matrix and Cosine Similarity to recommend books.
 
 The interactive Streamlit application allows users to select a book and discover five similar books, along with their authors and cover images.
+
+## Application Preview
+
+![Book AI Application Preview](app_preview.png)
 
 ## Features
 
@@ -25,7 +29,7 @@ The interactive Streamlit application allows users to select a book and discover
 | Pandas | Dataset loading, cleaning, and manipulation |
 | NumPy | Numerical operations and indexing |
 | Scikit-learn | Cosine Similarity calculation |
-| Pickle | Saving and loading trained model data |
+| Pickle | Saving and loading model data |
 | Streamlit | Interactive web application |
 
 ## Project Structure
@@ -67,7 +71,7 @@ Dataset source:
 
 [Book Recommendation Dataset – Kaggle](https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset)
 
-The dataset consists of three main files:
+The dataset consists of three files:
 
 ### 1. Books Dataset – `books.csv`
 
@@ -107,7 +111,7 @@ The dataset uses ratings from 1 to 10. A rating of 0 represents an implicit inte
 3. Download the dataset ZIP file.
 4. Extract the downloaded files.
 5. Locate the three CSV files containing books, users, and ratings.
-6. Rename them if necessary to match the following filenames:
+6. Rename them if necessary to match these filenames:
 
 ```text
 books.csv
@@ -117,11 +121,11 @@ ratings.csv
 
 7. Place all three CSV files in the root directory of the project, alongside `app.py` and `train_model.ipynb`.
 
-**Important:** The filenames must match the names used in the notebook. The CSV files are required for model training, not for every application launch.
+**Important:** The filenames must match the names used in the notebook.
 
 ## How the Recommendation System Works
 
-Book AI uses collaborative filtering to identify books that have similar rating patterns across users.
+Book AI uses collaborative filtering to identify books with similar rating patterns across users.
 
 ### 1. Dataset Loading
 
@@ -131,11 +135,9 @@ The three datasets are loaded using Pandas:
 - Users
 - Ratings
 
-The datasets are initially explored using methods such as `head()`, `shape`, `info()`, `describe()`, `isnull().sum()`, and `duplicated().sum()`.
+The notebook explores the datasets using methods such as `head()`, `shape`, `info()`, `describe()`, `isnull().sum()`, and `duplicated().sum()`.
 
 ### 2. Data Cleaning and Preprocessing
-
-The notebook performs several preprocessing operations:
 
 **User Data:**
 - Identifies unrealistic age values.
@@ -192,7 +194,7 @@ The resulting matrix represents the rating patterns of users across different bo
 
 ### 7. Cosine Similarity Calculation
 
-Scikit-learn's `cosine_similarity()` calculates the similarity between the book rating vectors.
+Scikit-learn's `cosine_similarity()` calculates similarity between the book rating vectors.
 
 Books with more similar rating patterns receive higher similarity scores.
 
@@ -271,6 +273,14 @@ When a user selects a book:
           Display Covers and Authors
 ```
 
+## API Integration
+
+This project does **not** require an external API or API key.
+
+Book cover images are displayed using the image URLs already available in the `books.csv` dataset. These URLs are retained in `books.pkl` and used directly by the Streamlit application.
+
+An internet connection may be required to load externally hosted book cover images.
+
 ## Installation and Setup
 
 ### 1. Clone the Repository
@@ -311,8 +321,8 @@ Place these three files in the project root:
 
 ```text
 books.csv
-users.csv
 ratings.csv
+users.csv
 ```
 
 ### 5. Generate the Model Files
@@ -349,13 +359,25 @@ streamlit run app.py
 
 The Book AI application will open in your web browser.
 
+## Requirements
+
+The project dependencies are listed in `requirements.txt`:
+
+```text
+streamlit
+numpy
+pandas
+scikit-learn
+```
+
 ## Important Notes
 
 - Model training is required before launching the application for the first time.
 - The Streamlit application loads the generated pickle files directly.
 - The CSV datasets are not required every time the application runs, provided the pickle files already exist.
 - The recommendation system is based on user rating patterns, not book descriptions or genres.
-- Book cover images are retrieved using the image URLs stored in the book dataset.
+- Book cover images are retrieved using image URLs stored in the book dataset.
+- No API key or API configuration is required.
 
 ## Future Enhancements
 
