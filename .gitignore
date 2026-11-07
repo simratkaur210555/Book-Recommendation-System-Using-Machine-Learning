@@ -1,0 +1,40 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+myenv/
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Dataset files
+books.csv
+ratings.csv
+users.csv
+
+# Generated model files
+books.pkl
+pt.pkl
+PT.pkl
+similarity.pkl
+
+# Environment secrets
+.env
+.env.*
+.streamlit/secrets.toml
+
+# System files
+desktop.ini
+Thumbs.db
+.DS_Store
+
+# IDE files
+.vscode/
+.idea/
+
+# Logs
+*.log
